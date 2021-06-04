@@ -28,7 +28,7 @@ module Twitter
         url = 'https://api.twitter.com/oauth2/token'
         headers = Twitter::Headers.new(self, :post, url, options).request_headers
         response = HTTP.headers(headers).post(url, form: options)
-        response.parse['access_token']
+        response.parse('application/json')['access_token']
       end
       alias bearer_token token
 
